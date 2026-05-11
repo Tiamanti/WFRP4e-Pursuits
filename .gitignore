@@ -1,0 +1,6 @@
+.idea/
+node_modules/
+dist/
+foundryconfig.json
+foundry-path.js
+foundry-path.mjs
