@@ -1,0 +1,109 @@
+<div class="pursuit-card pursuit-round pursuit-round-complex">
+    <header class="pursuit-header">
+        <h3 class="pursuit-title">{{localize "PURSUITS.Complex"}}</h3>
+        {{#unless outcome}}
+        <span class="pursuit-round-badge">{{localize "PURSUITS.Round"}} {{round}}</span>
+        {{/unless}}
+    </header>
+
+    {{#if caught}}
+    <div class="pursuit-outcome pursuit-caught">{{localize "PURSUITS.Caught"}}</div>
+    {{else if escaped}}
+    <div class="pursuit-outcome pursuit-escaped">{{localize "PURSUITS.Escaped"}}</div>
+    {{else}}
+
+    {{#if positionDiagram}}
+    <div class="pursuit-position-diagram" role="img" aria-label="{{localize "PURSUITS.PositionDiagramLabel"}}">
+        {{#each positionDiagram.nodes}}
+        {{#if gapBefore}}<span class="diagram-gap-label">{{gapBefore}}</span>{{/if}}
+        <div class="diagram-node role-{{role}}{{#if isActive}} is-active{{/if}}{{#if isCaughtPending}} is-caught-pending{{/if}}">
+            <div class="diagram-circle"></div>
+            <span class="diagram-node-name">{{name}}</span>
+        </div>
+        {{/each}}
+        {{#if positionDiagram.escapeMarker}}
+        <div class="diagram-escape-marker">
+            <span class="diagram-escape-label">{{positionDiagram.escapeMarker.value}}</span>
+        </div>
+        {{/if}}
+    </div>
+    {{/if}}
+
+    <div class="pursuit-sl-section">
+        {{#each combined}}
+        <div class="pursuit-sl-row {{#if isActiveTurn}}active-turn{{/if}}">
+            <span class="initiative-badge" title="{{localize "PURSUITS.InitiativeTurn"}}">{{initiativeOrder}}</span>
+            <span class="action-count-badge" title="{{localize "PURSUITS.ActionsTaken"}}">R{{actionsTaken}}</span>
+            <span class="participant-role-badge {{#if isQuarry}}role-quarry{{else}}role-pursuer{{/if}}">
+                {{#if isQuarry}}{{localize "PURSUITS.QuarryBadge"}}{{else}}{{localize "PURSUITS.PursuerBadge"}}{{/if}}
+            </span>
+            <span class="participant-name">{{name}}</span>
+            {{#if movePenalty}}<span class="participant-penalty" title="{{localize "PURSUITS.MovePenalty"}}">{{movePenalty}}</span>{{/if}}
+            {{#if statusText}}<span class="participant-status">{{statusText}}</span>{{/if}}
+            {{#if hasResult}}<span class="sl-result">SL {{sl}}</span>{{/if}}
+        </div>
+        {{/each}}
+    </div>
+
+    {{#each combined}}{{#if isActiveTurn}}{{#unless skipsRoll}}
+    <footer class="pursuit-footer">
+        {{#if @root.isGM}}
+        <button type="button" class="pursuit-roll-btn gm-only" data-action="createObstacle" data-token-uuid="{{tokenUuid}}">
+            {{localize "PURSUITS.CreateObstacle"}}
+        </button>
+        {{/if}}
+        {{#if isProne}}
+        <button type="button" class="pursuit-roll-btn pursuit-condition-btn" data-action="removeCondition" data-condition="prone" data-actor-uuid="{{actorUuid}}" data-token-uuid="{{tokenUuid}}">
+            {{localize "PURSUITS.StandUp"}}
+        </button>
+        {{else if isEntangled}}
+        <button type="button" class="pursuit-roll-btn pursuit-condition-btn" data-action="rollStrengthEscape" data-actor-uuid="{{actorUuid}}" data-token-uuid="{{tokenUuid}}" data-entangled-threshold="{{entangledThreshold}}">
+            {{localize "PURSUITS.Untangle"}}
+        </button>
+        {{else if isPerceptionPending}}
+        <button type="button" class="pursuit-roll-btn" data-action="rollPerception" data-actor-uuid="{{actorUuid}}" data-token-uuid="{{tokenUuid}}">
+            {{localize "PURSUITS.RollPerception"}}
+        </button>
+        {{else}}
+        <button type="button" class="pursuit-roll-btn" data-action="rollSkill" data-actor-uuid="{{actorUuid}}" data-token-uuid="{{tokenUuid}}">
+            {{localize "PURSUITS.Roll"}}
+        </button>
+        {{/if}}
+    </footer>
+    {{/unless}}{{/if}}{{/each}}
+
+    {{/if}}
+
+    {{#if roundLog.length}}
+    <div class="pursuit-round-log">
+        {{#each roundLog}}
+        <details class="round-log-entry">
+            <summary>
+                {{localize "PURSUITS.Round"}} {{round}}:
+                {{prevDistance}} → {{newDistance}} ({{distanceChangeStr}})
+            </summary>
+            <div class="round-log-groups">
+                <div class="log-group">
+                    <strong>{{localize "PURSUITS.Quarry"}}</strong>
+                    {{#each quarry}}
+                    <div class="log-row">
+                        <span class="log-name">{{name}}</span>
+                        <span class="log-sl">SL {{sl}} → +{{distMoved}}{{#if fell}} — {{localize "PURSUITS.TripsAndFalls"}}{{/if}}</span>
+                    </div>
+                    {{/each}}
+                </div>
+                <div class="log-group">
+                    <strong>{{localize "PURSUITS.Pursuers"}}</strong>
+                    {{#each pursuers}}
+                    <div class="log-row">
+                        <span class="log-name">{{name}}</span>
+                        <span class="log-sl">SL {{sl}} → +{{distMoved}}{{#if fell}} — {{localize "PURSUITS.TripsAndFalls"}}{{/if}}</span>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </details>
+        {{/each}}
+    </div>
+    {{/if}}
+</div>

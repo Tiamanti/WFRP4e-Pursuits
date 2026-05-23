@@ -29,9 +29,10 @@ export default {
             targets: [
                 { src: "module.json", dest: modulePath },
                 { src: "languages/*", dest: `${modulePath}/languages` },
-                { src: "styles/*", dest: `${modulePath}/styles` }
+                { src: "styles/*", dest: `${modulePath}/styles` },
+                { src: "templates", dest: modulePath }
             ],
-            watch: isProduction ? false : ["languages/**", "styles/**", "module.json"]
+            watch: isProduction ? false : ["languages/**", "styles/**", "module.json", "templates/**"]
         })
     ]
 }

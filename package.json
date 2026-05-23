@@ -1,16 +1,27 @@
 {
   "name": "wfrp4e-pursuits",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Pursuits module for Warhammer Fantasy Roleplay 4th Edition.",
   "type": "module",
   "scripts": {
     "build": "cross-env NODE_ENV=development rollup --config rollup.config.mjs --watch",
-    "release": "cross-env NODE_ENV=production rollup --config rollup.config.mjs"
+    "release": "cross-env NODE_ENV=production rollup --config rollup.config.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "setup:e2e": "node tests/e2e/setup.mjs",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:debug": "playwright test --debug",
+    "test:e2e:report": "playwright show-report",
+    "test:e2e:show-trace": "playwright show-trace"
   },
   "devDependencies": {
+    "@playwright/test": "^1.49.0",
     "cross-env": "^7.0.3",
+    "foundryvtt-test-framework": "github:Tiamanti/foundryvtt-test-framework",
     "rollup": "^3.3.0",
     "rollup-plugin-copy-watch": "^0.0.1",
-    "rollup-plugin-postcss": "^4.0.2"
+    "rollup-plugin-postcss": "^4.0.2",
+    "vitest": "^3.2.4"
   }
 }

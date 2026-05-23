@@ -1,0 +1,109 @@
+<div class="obstacle-dialog-content">
+    <div class="form-group">
+        <label>{{localize "PURSUITS.ObstacleDialogTitle"}}</label>
+        <select class="obstacle-select">
+            {{#each obstacles}}
+            <option value="{{@index}}">{{name}}</option>
+            {{/each}}
+            <option value="custom">{{localize "PURSUITS.ObstacleCustom"}}</option>
+        </select>
+    </div>
+
+    <div class="obstacle-preview" hidden>
+        <div class="form-group">
+            <label>{{localize "PURSUITS.ObstaclePerceivedLabel"}}</label>
+            <span class="obs-perceived-value"></span>
+        </div>
+        <div class="form-group">
+            <label>{{localize "PURSUITS.ObstacleTestLabel"}}</label>
+            <span class="obs-test-value"></span>
+        </div>
+        <div class="form-group">
+            <label>{{localize "PURSUITS.ObstacleConsequencesLabel"}}</label>
+            <span class="obs-consequences-value"></span>
+        </div>
+    </div>
+
+    <div class="custom-obstacle-form" hidden>
+        <div class="form-group">
+            <label>{{localize "PURSUITS.ObstacleNameLabel"}}</label>
+            <input type="text" class="custom-name-input" placeholder="{{localize "PURSUITS.ObstacleCustom"}}" />
+        </div>
+        <div class="form-group">
+            <label>{{localize "PURSUITS.ObstaclePerceivedLabel"}}</label>
+            <select class="custom-perceived-select">
+                <option value="auto">{{localize "PURSUITS.ObstacleAutoPerceived"}}</option>
+                {{#each difficulties}}
+                <option value="{{key}}">{{label}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="form-group custom-nav-single">
+            <label>{{localize "PURSUITS.ObstacleTestLabel"}}</label>
+            <div class="nav-combo">
+                <select class="custom-nav-diff">
+                    {{#each difficulties}}
+                    <option value="{{key}}">{{label}}</option>
+                    {{/each}}
+                </select>
+                <select class="custom-nav-skill">
+                    {{#each navigateSkills}}
+                    <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group custom-nav-perceived" hidden>
+            <label>{{localize "PURSUITS.ObstacleTestPerceivedLabel"}}</label>
+            <div class="nav-combo">
+                <select class="custom-navp-diff">
+                    {{#each difficulties}}
+                    <option value="{{key}}">{{label}}</option>
+                    {{/each}}
+                </select>
+                <select class="custom-navp-skill">
+                    {{#each navigateSkills}}
+                    <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group custom-nav-unperceived" hidden>
+            <label>{{localize "PURSUITS.ObstacleTestUnperceivedLabel"}}</label>
+            <div class="nav-combo">
+                <select class="custom-navu-diff">
+                    {{#each difficulties}}
+                    <option value="{{key}}">{{label}}</option>
+                    {{/each}}
+                </select>
+                <select class="custom-navu-skill">
+                    {{#each navigateSkills}}
+                    <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>{{localize "PURSUITS.ObstacleConsequencesLabel"}}</label>
+            <textarea class="custom-consequences-input" rows="2"></textarea>
+        </div>
+        <div class="form-group">
+            <label>{{localize "PURSUITS.ObstacleBlocksProgressLabel"}}</label>
+            <input type="checkbox" class="obstacle-blocks-progress" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "PURSUITS.ObstaclePositionLabel"}}</label>
+        <input type="number" class="obstacle-distance-input" value="0" step="1" />
+    </div>
+
+    <div class="obstacle-dialog-buttons">
+        <button type="button" class="obstacle-confirm">{{localize "PURSUITS.ObstacleConfirm"}}</button>
+        <button type="button" class="obstacle-cancel">{{localize "Cancel"}}</button>
+    </div>
+</div>

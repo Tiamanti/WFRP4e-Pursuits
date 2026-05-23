@@ -4,3 +4,9 @@ dist/
 foundryconfig.json
 foundry-path.js
 foundry-path.mjs
+docs/SPEC.md
+tests/e2e/config.mjs
+tests/e2e/test-data/
+test-data
+playwright-report/
+test-results/

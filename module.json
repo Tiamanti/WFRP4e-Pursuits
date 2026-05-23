@@ -2,7 +2,7 @@
   "id": "wfrp4e-pursuits",
   "title": "[WFRP4e] Pursuits",
   "description": "",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "compatibility": {
     "minimum": "13",
     "verified": "14"
@@ -42,14 +42,10 @@
         "id": "wfrp4e-up-in-arms",
         "type": "module",
         "compatibility": {}
-      },
-      {
-        "id": "wfrp4e-core",
-        "type": "module",
-        "compatibility": {}
       }
     ]
   },
+  "socket": true,
   "flags": {
     "canUpload": true
   }

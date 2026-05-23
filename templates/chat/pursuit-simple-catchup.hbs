@@ -1,0 +1,13 @@
+<div class="pursuit-card pursuit-notification">
+    <p>{{localize "PURSUITS.SacrificeMember"}}</p>
+    <div class="pursuit-caught-actions gm-only">
+        {{#each candidates}}
+        <button type="button" data-action="abandonQuarry" data-uuid="{{tokenUuid}}">
+            {{localize "PURSUITS.QuarrySacrifice"}} <strong>{{name}}</strong> ({{localize "PURSUITS.Distance"}} {{newDistance}})
+        </button>
+        {{/each}}
+        <button type="button" data-action="endSimplePursuit">
+            {{localize "PURSUITS.AllCaptured"}}
+        </button>
+    </div>
+</div>

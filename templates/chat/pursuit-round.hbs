@@ -1,0 +1,117 @@
+<div class="pursuit-card pursuit-round">
+    <header class="pursuit-header">
+        <h3 class="pursuit-title">{{localize "PURSUITS.Simple"}}</h3>
+        {{#unless outcome}}
+        <span class="pursuit-round-badge">{{localize "PURSUITS.Round"}} {{round}}</span>
+        {{/unless}}
+    </header>
+
+    <div class="pursuit-distance-section">
+        <div class="pursuit-distance-track">
+            <div class="pursuit-distance-fill {{distanceClass}}" style="width: {{distancePct}}%"></div>
+        </div>
+        <div class="pursuit-distance-info">
+            <span class="distance-end">{{localize "PURSUITS.BarCaught"}} (0)</span>
+            <span class="distance-value">{{localize "PURSUITS.Distance"}}: {{distance}} / {{escapeDistance}}</span>
+            <span class="distance-end">{{localize "PURSUITS.BarEscape"}} ({{escapeDistance}})</span>
+        </div>
+    </div>
+
+    {{#if caught}}
+    <div class="pursuit-outcome pursuit-caught">{{localize "PURSUITS.Caught"}}</div>
+    {{else if escaped}}
+    <div class="pursuit-outcome pursuit-escaped">{{localize "PURSUITS.Escaped"}}</div>
+    {{else}}
+
+    <div class="pursuit-sl-section">
+        <h4>{{localize "PURSUITS.Quarry"}}</h4>
+        {{#each quarry}}
+        <div class="pursuit-sl-row">
+            <span class="participant-name">{{name}}</span>
+            {{#if moveBonus}}<span class="participant-bonus" title="{{localize "PURSUITS.MoveBonus"}}">+{{moveBonus}}</span>{{/if}}
+            {{#if hasResult}}<span class="sl-result">SL {{sl}}</span>{{/if}}
+            {{#unless skipsRoll}}
+            {{#if isProne}}
+            <button type="button" class="pursuit-roll-btn pursuit-condition-btn" data-action="removeCondition" data-condition="prone" data-actor-uuid="{{actorUuid}}" data-token-uuid="{{tokenUuid}}">
+                {{localize "PURSUITS.StandUp"}}
+            </button>
+            {{else if isEntangled}}
+            <button type="button" class="pursuit-roll-btn pursuit-condition-btn" data-action="removeCondition" data-condition="entangled" data-actor-uuid="{{actorUuid}}" data-token-uuid="{{tokenUuid}}">
+                {{localize "PURSUITS.Untangle"}}
+            </button>
+            {{else}}
+            <button type="button" class="pursuit-roll-btn" data-action="rollSkill" data-actor-uuid="{{actorUuid}}" data-token-uuid="{{tokenUuid}}">
+                {{localize "PURSUITS.Roll"}}
+            </button>
+            {{/if}}
+            {{/unless}}
+        </div>
+        {{/each}}
+
+        <h4>{{localize "PURSUITS.Pursuers"}}</h4>
+        {{#each pursuers}}
+        <div class="pursuit-sl-row">
+            <span class="participant-name">{{name}}</span>
+            {{#if moveBonus}}<span class="participant-bonus" title="{{localize "PURSUITS.MoveBonus"}}">+{{moveBonus}}</span>{{/if}}
+            {{#if hasResult}}<span class="sl-result">SL {{sl}}</span>{{/if}}
+            {{#unless skipsRoll}}
+            {{#if isProne}}
+            <button type="button" class="pursuit-roll-btn pursuit-condition-btn" data-action="removeCondition" data-condition="prone" data-actor-uuid="{{actorUuid}}" data-token-uuid="{{tokenUuid}}">
+                {{localize "PURSUITS.StandUp"}}
+            </button>
+            {{else if isEntangled}}
+            <button type="button" class="pursuit-roll-btn pursuit-condition-btn" data-action="removeCondition" data-condition="entangled" data-actor-uuid="{{actorUuid}}" data-token-uuid="{{tokenUuid}}">
+                {{localize "PURSUITS.Untangle"}}
+            </button>
+            {{else}}
+            <button type="button" class="pursuit-roll-btn" data-action="rollSkill" data-actor-uuid="{{actorUuid}}" data-token-uuid="{{tokenUuid}}">
+                {{localize "PURSUITS.Roll"}}
+            </button>
+            {{/if}}
+            {{/unless}}
+        </div>
+        {{/each}}
+    </div>
+
+    <footer class="pursuit-footer gm-only">
+        <button type="button" class="pursuit-resolve-btn" data-action="resolveRound"
+                {{#unless canResolve}}disabled title="{{localize "PURSUITS.NeedAllRolls"}}"{{/unless}}>
+            {{localize "PURSUITS.ResolveRound"}}
+        </button>
+    </footer>
+
+    {{/if}}
+
+    {{#if roundLog.length}}
+    <div class="pursuit-round-log">
+        {{#each roundLog}}
+        <details class="round-log-entry">
+            <summary>
+                {{localize "PURSUITS.Round"}} {{round}}:
+                {{prevDistance}} → {{newDistance}} ({{distanceChangeStr}})
+            </summary>
+            <div class="round-log-groups">
+                <div class="log-group">
+                    <strong>{{localize "PURSUITS.Quarry"}}</strong>
+                    {{#each quarry}}
+                    <div class="log-row">
+                        <span class="log-name">{{name}}</span>
+                        <span class="log-sl">SL {{sl}}{{#if moveBonus}} +{{moveBonus}}{{/if}} = {{effectiveSl}}</span>
+                    </div>
+                    {{/each}}
+                </div>
+                <div class="log-group">
+                    <strong>{{localize "PURSUITS.Pursuers"}}</strong>
+                    {{#each pursuers}}
+                    <div class="log-row">
+                        <span class="log-name">{{name}}</span>
+                        <span class="log-sl">SL {{sl}}{{#if moveBonus}} +{{moveBonus}}{{/if}} = {{effectiveSl}}</span>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </details>
+        {{/each}}
+    </div>
+    {{/if}}
+</div>

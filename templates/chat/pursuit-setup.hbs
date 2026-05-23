@@ -1,0 +1,111 @@
+<div class="pursuit-card pursuit-setup">
+    <header class="pursuit-header">
+        <h3 class="pursuit-title">
+            {{#if isSimple}}{{localize "PURSUITS.Simple"}}{{else}}{{localize "PURSUITS.Complex"}}{{/if}}
+        </h3>
+    </header>
+
+    <div class="pursuit-body">
+
+        <section class="pursuit-group quarry-group">
+            <h4>{{localize "PURSUITS.Quarry"}}</h4>
+            <ul class="participant-list">
+                {{#each quarry}}
+                <li class="participant" data-uuid="{{tokenUuid}}">
+                    <div class="participant-main-row">
+                        <span class="participant-name">{{name}}</span>
+                        <span class="participant-move">{{localize "PURSUITS.Move"}}: {{move}}</span>
+                        <select class="participant-skill-select">
+                            <option value="Athletics" {{#if skillAthletics}}selected{{/if}}>{{localize "PURSUITS.SkillAthletics"}}</option>
+                            <option value="Ride" {{#if skillRide}}selected{{/if}}>{{localize "PURSUITS.SkillRide"}}</option>
+                            <option value="Drive" {{#if skillDrive}}selected{{/if}}>{{localize "PURSUITS.SkillDrive"}}</option>
+                        </select>
+                        {{#if showInitiativeBtn}}
+                        <button type="button"
+                                class="participant-initiative-btn {{#if hasInitiative}}has-initiative{{/if}}"
+                                data-action="rollInitiative"
+                                data-uuid="{{tokenUuid}}"
+                                data-actor-uuid="{{actorUuid}}"
+                                title="{{localize "PURSUITS.RollInitiative"}}">
+                            {{#if hasInitiative}}{{initiative}}{{else}}<i class="fa-solid fa-dice-d20"></i>{{/if}}
+                        </button>
+                        {{/if}}
+                        <button type="button" class="participant-remove gm-only" data-action="removeParticipant" data-group="quarry" data-uuid="{{tokenUuid}}" title="{{localize "PURSUITS.Remove"}}">&times;</button>
+                    </div>
+                    <div class="participant-move-rating-row"{{#unless showMoveRating}} style="display:none"{{/unless}}>
+                        <label>{{localize "PURSUITS.MoveRating"}}</label>
+                        <input type="number" class="participant-move-rating" value="{{moveRating}}" min="1" step="1">
+                    </div>
+                </li>
+                {{/each}}
+                {{#unless quarry.length}}
+                <li class="participant-empty">{{localize "PURSUITS.NoParticipants"}}</li>
+                {{/unless}}
+            </ul>
+            <button type="button" class="pursuit-join-btn" data-action="joinQuarry">
+                {{localize "PURSUITS.JoinQuarry"}}
+            </button>
+        </section>
+
+        <section class="pursuit-group pursuers-group">
+            <h4>{{localize "PURSUITS.Pursuers"}}</h4>
+            <ul class="participant-list">
+                {{#each pursuers}}
+                <li class="participant" data-uuid="{{tokenUuid}}">
+                    <div class="participant-main-row">
+                        <span class="participant-name">{{name}}</span>
+                        <span class="participant-move">{{localize "PURSUITS.Move"}}: {{move}}</span>
+                        <select class="participant-skill-select">
+                            <option value="Athletics" {{#if skillAthletics}}selected{{/if}}>{{localize "PURSUITS.SkillAthletics"}}</option>
+                            <option value="Ride" {{#if skillRide}}selected{{/if}}>{{localize "PURSUITS.SkillRide"}}</option>
+                            <option value="Drive" {{#if skillDrive}}selected{{/if}}>{{localize "PURSUITS.SkillDrive"}}</option>
+                        </select>
+                        {{#if showInitiativeBtn}}
+                        <button type="button"
+                                class="participant-initiative-btn {{#if hasInitiative}}has-initiative{{/if}}"
+                                data-action="rollInitiative"
+                                data-uuid="{{tokenUuid}}"
+                                data-actor-uuid="{{actorUuid}}"
+                                title="{{localize "PURSUITS.RollInitiative"}}">
+                            {{#if hasInitiative}}{{initiative}}{{else}}<i class="fa-solid fa-dice-d20"></i>{{/if}}
+                        </button>
+                        {{/if}}
+                        <button type="button" class="participant-remove gm-only" data-action="removeParticipant" data-group="pursuers" data-uuid="{{tokenUuid}}" title="{{localize "PURSUITS.Remove"}}">&times;</button>
+                    </div>
+                    <div class="participant-move-rating-row"{{#unless showMoveRating}} style="display:none"{{/unless}}>
+                        <label>{{localize "PURSUITS.MoveRating"}}</label>
+                        <input type="number" class="participant-move-rating" value="{{moveRating}}" min="1" step="1">
+                    </div>
+                </li>
+                {{/each}}
+                {{#unless pursuers.length}}
+                <li class="participant-empty">{{localize "PURSUITS.NoParticipants"}}</li>
+                {{/unless}}
+            </ul>
+            <button type="button" class="pursuit-join-btn" data-action="joinPursuers">
+                {{localize "PURSUITS.JoinPursuers"}}
+            </button>
+        </section>
+
+    </div>
+
+    <footer class="pursuit-footer gm-only">
+        <div class="pursuit-start-distance">
+            <label>{{localize "PURSUITS.StartingDistance"}}</label>
+            <input type="number" class="start-distance-input" value="{{distance}}" min="1" step="1">
+        </div>
+        {{#if isComplex}}
+        <div class="pursuit-environment-row">
+            <label>{{localize "PURSUITS.Environment"}}</label>
+            <select class="pursuit-environment-select">
+                {{#each environmentOptions}}
+                <option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+                {{/each}}
+            </select>
+        </div>
+        {{/if}}
+        <button type="button" class="pursuit-start-btn" data-action="start" {{#unless canStart}}data-start-blocked="true"{{/unless}}>
+            {{localize "PURSUITS.StartPursuit"}}
+        </button>
+    </footer>
+</div>

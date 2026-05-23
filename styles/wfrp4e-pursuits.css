@@ -1,1 +1,478 @@
 /* [WFRP4e] Pursuits styles */
+
+/* ── Type selector dialog ── */
+.pursuit-type-selector {
+    padding: 8px 12px 12px;
+    text-align: center;
+}
+
+.pursuit-type-selector h2 {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.pursuit-type-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.pursuit-type-buttons button {
+    flex: 1;
+    padding: 8px 12px;
+    cursor: pointer;
+    height: 3em;
+}
+
+.pursuit-type-buttons button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ── Setup chat card ── */
+.pursuit-card {
+    padding: 4px 8px 8px;
+}
+
+.pursuit-header {
+    border-bottom: 1px solid var(--color-border-light-primary, #c9c7b8);
+    margin-bottom: 6px;
+}
+
+.pursuit-title {
+    margin: 0 0 4px;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.pursuit-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pursuit-group {}
+
+.pursuit-group h4 {
+    margin: 0 0 4px;
+    font-size: 0.85em;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--color-border-light-tertiary, #ddd);
+}
+
+.participant-list {
+    list-style: none;
+    margin: 0 0 4px;
+    padding: 0;
+    min-height: 24px;
+}
+
+.participant {
+    padding: 2px 0;
+    font-size: 0.8em;
+}
+
+.participant-main-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.participant-skill-select {
+    font-size: 0.85em;
+    padding: 1px 2px;
+    max-width: 80px;
+}
+
+.participant-move-rating-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75em;
+    padding: 2px 0 0 8px;
+    color: var(--color-text-light-6, #888);
+}
+
+.participant-move-rating {
+    width: 44px;
+    text-align: center;
+    padding: 1px 2px;
+    font-size: 0.9em;
+}
+
+.participant-name {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.participant-move {
+    color: var(--color-text-light-6, #888);
+    font-size: 0.9em;
+}
+
+.participant-remove {
+    background: none;
+    border: none;
+    color: var(--color-text-light-6, #888);
+    cursor: pointer;
+    font-size: 0.9em;
+    line-height: 1;
+    padding: 0 2px;
+}
+
+.participant-remove:hover {
+    color: var(--color-text-hyperlink, #b5000b);
+}
+
+.participant-initiative-btn {
+    padding: 1px 5px;
+    font-size: 0.75em;
+    border-radius: 3px;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.participant-initiative-btn.has-initiative {
+    background: rgba(45, 138, 58, 0.12);
+    border-color: #2d8a3a;
+    color: #2d8a3a;
+}
+
+.participant-empty {
+    color: var(--color-text-light-6, #888);
+    font-size: 0.8em;
+    font-style: italic;
+    padding: 2px 0;
+}
+
+.pursuit-join-btn {
+    width: 100%;
+    font-size: 0.8em;
+    padding: 2px 6px;
+    cursor: pointer;
+}
+
+.pursuit-footer {
+    margin-top: 6px;
+    text-align: center;
+    button {
+        width: stretch;
+    }
+}
+
+.pursuit-start-btn {
+    width: 100%;
+    cursor: pointer;
+}
+
+.pursuit-start-btn[data-start-blocked] {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* ── Round chat card ── */
+.pursuit-round .pursuit-round-badge {
+    display: block;
+    font-size: 0.8em;
+    color: var(--color-text-light-6, #888);
+    margin-top: -2px;
+}
+
+.pursuit-distance-section {
+    margin: 6px 0;
+}
+
+.pursuit-distance-track {
+    height: 8px;
+    background: var(--color-bg-option, #e8e6d9);
+    border: 1px solid var(--color-border-light-primary, #c9c7b8);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 3px;
+}
+
+.pursuit-distance-fill {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.distance-low  { background: #b5000b; }
+.distance-mid  { background: #c87a00; }
+.distance-high { background: #2d8a3a; }
+
+.pursuit-distance-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75em;
+}
+
+.distance-end {
+    color: var(--color-text-light-6, #888);
+    white-space: nowrap;
+}
+
+.distance-value {
+    font-weight: bold;
+    color: var(--color-text-dark-primary, #191813);
+}
+
+.pursuit-sl-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.pursuit-sl-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 0;
+    font-size: 0.8em;
+}
+
+.initiative-badge {
+    display: inline-block;
+    min-width: 16px;
+    padding: 0 3px;
+    background: rgba(120, 80, 40, 0.15);
+    border: 1px solid rgba(120, 80, 40, 0.35);
+    border-radius: 3px;
+    font-size: 0.75em;
+    text-align: center;
+    color: #6b4a20;
+    flex-shrink: 0;
+}
+
+.active-turn {
+    background: rgba(210, 170, 80, 0.30);
+    border-radius: 3px;
+    padding: 2px 3px;
+}
+
+.sl-input {
+    width: 44px;
+    text-align: center;
+    padding: 1px 2px;
+    font-size: 0.9em;
+}
+
+.participant-bonus {
+    color: #2d8a3a;
+    font-size: 0.85em;
+    font-weight: bold;
+    cursor: help;
+}
+
+.pursuit-outcome {
+    text-align: center;
+    font-weight: bold;
+    padding: 8px 4px;
+    margin: 6px 0 2px;
+    border-radius: 4px;
+    font-size: 0.95em;
+}
+
+.pursuit-caught {
+    background: rgba(181, 0, 11, 0.08);
+    border: 1px solid #b5000b;
+    color: #b5000b;
+}
+
+.pursuit-escaped {
+    background: rgba(45, 138, 58, 0.08);
+    border: 1px solid #2d8a3a;
+    color: #2d8a3a;
+}
+
+.pursuit-resolve-btn {
+    width: 100%;
+    cursor: pointer;
+}
+
+.pursuit-resolve-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.participant-role-badge {
+    display: inline-block;
+    min-width: 14px;
+    padding: 0 3px;
+    border-radius: 3px;
+    font-size: 0.7em;
+    text-align: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.role-quarry {
+    background: rgba(181, 0, 11, 0.10);
+    border: 1px solid rgba(181, 0, 11, 0.30);
+    color: #b5000b;
+}
+
+.role-pursuer {
+    background: rgba(45, 138, 58, 0.10);
+    border: 1px solid rgba(45, 138, 58, 0.30);
+    color: #2d8a3a;
+}
+
+.participant-status {
+    color: var(--color-text-light-6, #888);
+    font-size: 0.85em;
+}
+
+.participant-penalty {
+    color: #b5000b;
+    font-size: 0.85em;
+    cursor: help;
+}
+
+/* ─── Position diagram (PR2) ─────────────────────────────────────────────── */
+
+.pursuit-position-diagram {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    padding: 14px 6px 4px;
+    margin: 2px 0 6px;
+    gap: 2px;
+    overflow-x: auto;
+}
+
+.pursuit-position-diagram .diagram-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+    min-width: 36px;
+}
+
+.pursuit-position-diagram .diagram-circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1.5px solid #888;
+    background: transparent;
+    flex-shrink: 0;
+}
+
+.pursuit-position-diagram .role-quarry .diagram-circle {
+    background: rgba(181, 0, 11, 0.18);
+    border-color: #b5000b;
+}
+
+.pursuit-position-diagram .role-pursuer .diagram-circle {
+    background: rgba(45, 138, 58, 0.18);
+    border-color: #2d8a3a;
+}
+
+.pursuit-position-diagram .role-obstacle .diagram-circle {
+    background: rgba(120, 80, 20, 0.18);
+    border-color: #785014;
+}
+
+.pursuit-position-diagram .is-active .diagram-circle {
+    border-width: 2.5px;
+    filter: drop-shadow(0 0 3px rgba(210, 170, 80, 0.95));
+}
+
+.pursuit-position-diagram .is-caught-pending {
+    opacity: 0.4;
+}
+
+.pursuit-position-diagram .diagram-node-name {
+    font-size: 9px;
+    text-align: center;
+    max-width: 44px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--color-text-dark-primary, #191813);
+    font-weight: 500;
+}
+
+.pursuit-position-diagram .diagram-gap-label {
+    font-size: 10px;
+    color: var(--color-text-dark-secondary, #555);
+    font-weight: bold;
+    line-height: 16px;
+    min-width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.pursuit-position-diagram .diagram-escape-marker {
+    position: relative;
+    height: 8px;
+    margin-top: 4px;
+    border-bottom: 1.5px dashed #2d8a3a;
+    border-right: 2px solid #2d8a3a;
+    flex: 1;
+}
+
+.pursuit-position-diagram .diagram-escape-label {
+    position: absolute;
+    bottom: calc(100% + 2px);
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px;
+    color: #2d8a3a;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.pursuit-round-log {
+    max-height: 100px;
+    overflow: auto;
+}
+
+.obstacle-dialog-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.obstacle-dialog-content .obstacle-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.obstacle-dialog-content .custom-obstacle-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.obstacle-dialog-content .nav-combo {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    select { flex: 1; }
+}
+
+.obstacle-dialog-content .custom-consequences-input {
+    width: 100%;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+.obstacle-dialog-content .obstacle-dialog-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 10px;
+    button {
+        width: stretch;
+        width: -webkit-fill-available;
+    }
+}

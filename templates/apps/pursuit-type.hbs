@@ -1,0 +1,13 @@
+<div class="pursuit-type-selector">
+    <h2>{{localize "PURSUITS.SelectType"}}</h2>
+    <div class="pursuit-type-buttons">
+        <button type="button" data-action="selectSimple">
+            <i class="fas fa-running"></i>
+            {{localize "PURSUITS.Simple"}}
+        </button>
+        <button type="button" data-action="selectComplex" {{#unless upInArmsActive}}disabled title="{{localize "PURSUITS.UpInArmsRequired"}}"{{/unless}}>
+            <i class="fas fa-route"></i>
+            {{localize "PURSUITS.Complex"}}
+        </button>
+    </div>
+</div>

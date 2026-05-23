@@ -1,0 +1,13 @@
+<div class="pursuit-card pursuit-notification">
+    <p>{{localize "PURSUITS.SelectThoseWhoStop"}} <strong>{{capturedName}}</strong></p>
+    <div class="pursuit-captured-select gm-only">
+        {{#each pursuers}}
+        <label class="pursuer-checkbox-row">
+            <input type="checkbox" name="pursuer" value="{{tokenUuid}}"> {{name}}
+        </label>
+        {{/each}}
+        <button type="button" data-action="doneCaptureSelect">
+            {{localize "PURSUITS.Done"}}
+        </button>
+    </div>
+</div>

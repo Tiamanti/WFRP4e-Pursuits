@@ -1,0 +1,16 @@
+<div class="pursuit-card pursuit-notification">
+    <p><strong>{{quarryName}}</strong> {{localize "PURSUITS.WasCaughtBy"}} <strong>{{pursuerName}}</strong>.</p>
+    <div class="pursuit-caught-actions gm-only">
+        {{#if canExclude}}
+        <button type="button" data-action="excludePair">
+            {{localize "PURSUITS.ExcludePair"}}
+        </button>
+        {{/if}}
+        <button type="button" data-action="ignoreQuarry">
+            {{localize "PURSUITS.IgnoreQuarry"}}
+        </button>
+        <button type="button" data-action="endPursuit">
+            {{localize "PURSUITS.EndPursuit"}}
+        </button>
+    </div>
+</div>
