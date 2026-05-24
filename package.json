@@ -1,6 +1,6 @@
 {
   "name": "wfrp4e-pursuits",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pursuits module for Warhammer Fantasy Roleplay 4th Edition.",
   "type": "module",
   "scripts": {
