@@ -35,6 +35,24 @@ Per-character position tracking, initiative-ordered turns, individual catches.
 - Per-pursuer status text reflects their closest *non-ignored* Quarry — so an Ignored pair stops showing "has caught up" once the GM resolves it
 - Round auto-advances when every active participant has rolled or been skipped
 
+### Obstacles (complex only)
+
+A library of 15 pre-built obstacle types drawn from the SPEC table, plus a free-form custom entry.
+
+- GM places an obstacle from the **Create Obstacle** button in the active-turn footer; the dialog shows a name, its perceived description, navigation test, consequences, and a relative-distance offset from the current lead Quarry
+- Obstacles appear as nodes in the position diagram at their fixed position
+- When a participant reaches an obstacle they have not yet perceived, a **Perception** button replaces their roll button; the perception test result is stored per-participant
+- When a participant moves across an obstacle position, a navigation test is triggered automatically; on failure, participants with `blocksProgress: true` obstacles are halted at the obstacle's position and consequences are posted to chat
+- Obstacle rerolls (Fate Points, etc.) are tracked via the same reroll-capture hook as movement rolls and correctly update the obstacle's perception state
+- Obstacles are pruned from the flags once every active participant has navigated past them
+
+### Exhaustion (complex only)
+
+Implements the full SPEC threshold table (action counts 10 / 15 / 18 / 20 / 21 / 22 / 23 / 24 / 25 / 26).
+
+- **Athletics participants**: when the threshold is reached, an Endurance test dialog opens automatically at the correct difficulty (Very Easy +60 down to Even More Impossible −60); a failed roll (SL < 0) applies the `fatigued` condition to the actor
+- **Ride / Drive participants**: a chat notification names the participant and the required modifier so the GM can prompt the mount or draft-animal's Endurance test; a second line reminds the GM of the Challenging (+0) Charm Animal test the rider may attempt to keep a struggling mount running
+
 ### Both modes
 
 - Prone / Entangled participants show **Stand Up** / **Untangle** in place of their roll button. Clicking it removes the condition and skips that participant's roll for the round.
@@ -53,7 +71,7 @@ Per-character position tracking, initiative-ordered turns, individual catches.
 
 | Dependency | Minimum version |
 |---|---|
-| Foundry VTT | 13 |
+| Foundry VTT | 13 (verified 14) |
 | WFRP4e system | — |
 | Up in Arms (complex only) | — |
 
