@@ -61,7 +61,7 @@ Implements the full SPEC threshold table (action counts 10 / 15 / 18 / 20 / 21 /
 
 ## Design notes
 
-**Stand Up / Untangle is a single click, not a test.** SPEC §"Impeded Movement" says a Prone or Entangled character "potentially" needs to make a test to free themselves. The module skips the round (treating them as SL `−3` for resolution) and exposes a one-click condition-removal button. Rolling any required test is left to the GM to enforce outside the pursuit card — the wfrp4e system's own condition handling already covers the mechanics.
+**Stand Up / Untangle is a single click, not a test.** SPEC §"Impeded Movement" says a Prone or Entangled character "potentially" needs to make a test to free themselves. The module skips that participant's roll for the round and exposes a one-click condition-removal button. In complex mode the skip is treated as SL `−3` (the "halts" band in the Character Progress Table); in simple mode the participant is omitted from the SL comparison, which is equivalent to contributing SL `0`. Rolling any required test is left to the GM to enforce outside the pursuit card — the wfrp4e system's own condition handling already covers the mechanics.
 
 **Quarry are always tracked individually in complex mode.** SPEC permits collapsing a tight group into a single Distance until one member leads by more than 16 yards. The module skips that simplification — every Quarry has its own position. Collapsing a group on the card would mostly add visual noise to the per-participant view.
 
@@ -99,5 +99,5 @@ Pull requests are welcome.
 
 ## License
 
-This module is released under the [MIT License](LICENSE) and is free for anyone to use, modify, or maintain.
+This module is released under the [MIT License](LICENSE) and is free for anyone to use, modify, or maintain.  
 This work is licensed under Foundry Virtual Tabletop [EULA - Limited License for Package Development from March 2, 2023](https://foundryvtt.com/article/license/).
