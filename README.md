@@ -4,6 +4,13 @@
 
 A [Foundry VTT](https://foundryvtt.com) module for the [Warhammer Fantasy Roleplay 4th Edition](https://github.com/moo-man/WFRP4e-FoundryVTT) system that runs Simple and Complex Pursuits as chat-based encounter cards.
 
+<table style="border:none"><tr style="border:none">
+<td style="border:none;vertical-align:top"><img src="https://raw.githubusercontent.com/Tiamanti/WFRP4e-Pursuits/master/.github/assets/simple-setup.png" alt="Simple Setup" width="100%"></td>
+<td style="border:none;vertical-align:top"><img src="https://raw.githubusercontent.com/Tiamanti/WFRP4e-Pursuits/master/.github/assets/simple-flow.png" alt="Simple Flow" width="100%"></td>
+<td style="border:none;vertical-align:top"><img src="https://raw.githubusercontent.com/Tiamanti/WFRP4e-Pursuits/master/.github/assets/complex-setup.png" alt="Complex Setup" width="100%"></td>
+<td style="border:none;vertical-align:top"><img src="https://raw.githubusercontent.com/Tiamanti/WFRP4e-Pursuits/master/.github/assets/complex-flow.png" alt="Complex Flow" width="100%"></td>
+</tr></table>
+
 Start a pursuit with `/pursuit [simple|complex]`. A chat card lets you populate Quarry and Pursuers from selected/targeted tokens, set the starting distance and (for complex) the environment, then play it out round by round with per-participant skill rolls.
 
 ## Features
